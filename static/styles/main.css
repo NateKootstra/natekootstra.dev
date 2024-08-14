@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(1, 15, 2);
+}
+
+p {
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(180, 228, 180);
+}
+
+
+
+h1.title {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    padding-bottom: 20px;
+
+
+
+    width: fit-content;
+    
+    border-bottom: 1px solid;
+
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(154, 209, 154);
+}
+
+li.navbar {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    text-align: center;
+}
+
+li.navbar a {
+    margin-top: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+
+
+    width: fit-content;
+
+    display: inline-block;
+    
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(180, 228, 180);
+}
+
+
+
+div.homeContainer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+
+    width: 50%;
+    height: fit-content;
+    border-radius: 10px;
+    border: 1px solid white;
+
+}
+
+div.homeContainer p {
+    text-align: center;
+}
