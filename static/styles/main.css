@@ -1,10 +1,12 @@
 body {
-    background-color: rgb(1, 15, 2);
+    background-color: rgb(0, 15, 0);
+    margin: 0px;
+    height: 100%;
 }
 
 p {
     font-family: "Courier New", "Lucida Console", monospace;
-    color: rgb(180, 228, 180);
+    color: rgb(230, 255, 230);
 }
 
 
@@ -12,9 +14,10 @@ p {
 h1.title {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 20px;
 
+    padding-top: 20px;
     padding-bottom: 20px;
 
 
@@ -23,8 +26,21 @@ h1.title {
     
     border-bottom: 1px solid;
 
+    font-size: 45px;
     font-family: "Courier New", "Lucida Console", monospace;
-    color: rgb(154, 209, 154);
+    color: rgb(200, 255, 200);
+}
+
+h2.subtitle {
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+    width: fit-content;
+
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(200, 255, 200);
 }
 
 li.navbar {
@@ -36,17 +52,24 @@ li.navbar {
 
 li.navbar a {
     margin-top: 0px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 12px;
+    margin-right: 12px;
 
+    padding-left: 5px;
+    padding-right: 5px;
 
 
     width: fit-content;
+    height: 17px;
 
     display: inline-block;
+
+    border-radius: 5px;
+    background-color: rgba(0, 50, 0, 0.8);
     
     font-family: "Courier New", "Lucida Console", monospace;
-    color: rgb(180, 228, 180);
+    color: rgb(200, 255, 200);
+    text-decoration: none;
 }
 
 
@@ -55,14 +78,36 @@ div.homeContainer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+    margin-bottom: 0px;
 
-    width: 50%;
+    width: 65%;
     height: fit-content;
-    border-radius: 10px;
+
+    border-radius: 15px;
     border: 1px solid white;
 
+    background-color: black;
+}
+
+div.homeContainer * {
+    color: white;
 }
 
 div.homeContainer p {
+    margin-left: 10px;
+    margin-right: 10px;
+
     text-align: center;
+}
+
+
+
+canvas.mainbg {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -100;
+
+    position: absolute;
 }

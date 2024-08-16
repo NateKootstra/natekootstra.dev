@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(0, 0, 0);
+    margin: 0px;
+    height: 100%;
+}
+h1.comingSoon {
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+
+    width: fit-content;
+
+    font-size: 300%;
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(255, 255, 255);
+}

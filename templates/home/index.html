@@ -3,20 +3,133 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nate Kootstra</title>
+    <title>Nate Kootstra </title>
+
+
+
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css')}}">
+
+    <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
+    <script src="{{ url_for('static', filename='scripts/background.js')}}"></script>
+
+    
+<script id="shader-fs-hidden" type="x-shader/x-fragment">
+  #ifdef GL_ES
+  precision highp float;
+  #endif
+  
+  #ifdef GL_OES_standard_derivatives
+  #extension GL_OES_standard_derivatives : enable
+  #endif
+  
+  
+  // psrdnoise (c) Stefan Gustavson and Ian McEwan,
+  // ver. 2021-12-02, published under the MIT license:
+  // https://github.com/stegu/psrdnoise/
+  
+  float psrdnoise(vec2 x, vec2 period, float alpha, out vec2 gradient)
+  {
+    vec2 uv = vec2(x.x+x.y*0.5, x.y);
+    vec2 i0 = floor(uv), f0 = fract(uv);
+    float cmp = step(f0.y, f0.x);
+    vec2 o1 = vec2(cmp, 1.0-cmp);
+    vec2 i1 = i0 + o1, i2 = i0 + 1.0;
+    vec2 v0 = vec2(i0.x - i0.y*0.5, i0.y);
+    vec2 v1 = vec2(v0.x + o1.x - o1.y*0.5, v0.y + o1.y);
+    vec2 v2 = vec2(v0.x + 0.5, v0.y + 1.0);
+    vec2 x0 = x - v0, x1 = x - v1, x2 = x - v2;
+    vec3 iu, iv, xw, yw;
+    if(any(greaterThan(period, vec2(0.0)))) {
+      xw = vec3(v0.x, v1.x, v2.x);
+      yw = vec3(v0.y, v1.y, v2.y);
+      if(period.x > 0.0)
+        xw = mod(vec3(v0.x, v1.x, v2.x), period.x);
+      if(period.y > 0.0)
+        yw = mod(vec3(v0.y, v1.y, v2.y), period.y);
+      iu = floor(xw + 0.5*yw + 0.5); iv = floor(yw + 0.5);
+    } else {
+      iu = vec3(i0.x, i1.x, i2.x); iv = vec3(i0.y, i1.y, i2.y);
+    }
+    vec3 hash = mod(iu, 289.0);
+    hash = mod((hash*51.0 + 2.0)*hash + iv, 289.0);
+    hash = mod((hash*34.0 + 10.0)*hash, 289.0);
+    vec3 psi = hash*0.07482 + alpha;
+    vec3 gx = cos(psi); vec3 gy = sin(psi);
+    vec2 g0 = vec2(gx.x, gy.x);
+    vec2 g1 = vec2(gx.y, gy.y);
+    vec2 g2 = vec2(gx.z, gy.z);
+    vec3 w = 0.8 - vec3(dot(x0, x0), dot(x1, x1), dot(x2, x2));
+    w = max(w, 0.0); vec3 w2 = w*w; vec3 w4 = w2*w2;
+    vec3 gdotx = vec3(dot(g0, x0), dot(g1, x1), dot(g2, x2));
+    float n = dot(w4, gdotx);
+    vec3 w3 = w2*w; vec3 dw = -8.0*w3*gdotx;
+    vec2 dn0 = w4.x*g0 + dw.x*x0;
+    vec2 dn1 = w4.y*g1 + dw.y*x1;
+    vec2 dn2 = w4.z*g2 + dw.z*x2;
+    gradient = 10.9*(dn0 + dn1 + dn2);
+    return 10.9*n;
+  }
+  
+  </script>  
+    
+    <script id="shader-vs" type="x-shader/x-vertex"> attribute vec3 position; attribute vec2 texcoord; varying vec2 st; void main(void) { gl_Position = vec4(position, 1.0); st = texcoord; } </script>
+    <script id="shader-fs-visible" type="x-shader/x-fragment">
+      varying vec2 st;
+      uniform float time;
+      
+      void main(void) {
+      
+          const float nscale = 3.0;
+          vec2 v = nscale * (st-0.5);
+          const vec2 p = vec2(4.0, 4.0);
+          float alpha = time*0.75;
+          vec2 g, gsum;
+          float warp = 0.1;
+          
+          float n = 0.0;
+          float w = 1.0;
+          float s = 1.0;
+          gsum = vec2(0.0);
+          for(float i = 0.0; i<5.0; i++) {
+            n += w*psrdnoise(s*v + warp*gsum, s*p, s*alpha, g);
+            gsum += w * g;
+            w *= 0.5;
+            s *= 2.0;
+          }
+      
+          vec3 noisecolor = vec3(0.08*(0.5-0.4*n));
+          
+          gl_FragColor = vec4(noisecolor, 0.0);
+      }
+    </script>
   </head>
-  <body>
+  <body onload="webGLStart();">
+
+    <canvas class="mainbg" id="mainbg"></canvas>   
+    
     <main>
+
+        
+          
+        <!-- Title Section -->
         <h1 class="title">Nate Kootstra</h1>
         <li class="navbar">
-          <a>Home</a>
-          <a>MintMC</a>
+          <a href="/comingSoon">Home</a>
+          <a href="/comingSoon">MintMC</a>
         </li>
+
+        <!-- About Me section -->
         <div class="homeContainer">
-          <p>[About me will go here]</p>
+          <h2 class="subtitle">About Me</h2>
+          <p>I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd. <br>
+            I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS.<br>
+            
+          </p>
         </div>
+
     </main>
-	<script src="index.js"></script>
+
+	  
+
   </body>
 </html>
