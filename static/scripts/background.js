@@ -141,7 +141,6 @@ function drawScene() {
 var lastTime = 0;
 var startTime = 0;
 var runningTime = 0;
-var fpscounter;
 	
 function animate() {
 	frames += 1;
@@ -149,8 +148,6 @@ function animate() {
 	runningTime = currentTime - startTime;
 	var elapsedTime = currentTime - lastTime;
 	if (elapsedTime >= 1000.0) {
-		fps = frames * 1000.0 / elapsedTime;
-		fpscounter.value = Math.round(fps*10)/10;
 		frames = 0;
 		lastTime = currentTime;
 	}
@@ -163,7 +160,6 @@ function tick() {
 }
 
 function webGLStart() {
-	fpscounter = document.getElementById("fpscounter");
 	var canvas = document.getElementById("mainbg");
 	initGL(canvas);
 	initShaders();
