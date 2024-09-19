@@ -1,47 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nate Kootstra </title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nate Kootstra </title>
 
 
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/core.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/image.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/navbar.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/section.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/subtitle.css')}}">
 
-    <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/mintmc/subtitle.css')}}">
 
-  </head>
-  <body>
-    
-    <main>
-          
-        <!-- Title Section -->
-        <div class="titleSection">
-          <h1 class="title">Nate Kootstra</h1>
-          <li class="navbar">
-            <a href="/" >Home</a>
-            <a href="/mintmc" class="selected">MintMC</a>
-            <a href="/coming-soon">NFCLib</a>
-            <a href="/coming-soon">CBOD</a>
-          </li>
-        </div>
-        
+  <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
 
-        <!-- About Me section -->
-        <div class="homeContainer">
-          <h2 class="subtitle">About Me</h2>
-          <p>I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd. <br>
-            I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS.<br>
-            
-          </p>
-        </div>
+</head>
 
-        <img class="main" src="{{ url_for('static', filename='images/image.png')}}" alt="Test image">
+<body>
 
-    </main>
+  <main>
 
-	  
+    <!-- Navbar Section -->
+    <div class="navbarSection">
+      <h1 class="title">Nate Kootstra</h1>
+      <li class="navbar">
+        <a href="/">Home</a>
+        <a href="/mintmc" class="selected">MintMC</a>
+        <a href="/coming-soon">NFCLib</a>
+        <a href="/coming-soon">CBOD</a>
+      </li>
+    </div>
 
-  </body>
+    <!-- Subtitle Section -->
+    <div class="subtitleSection">
+      <div class="subtitlePadding">
+        <div></div>
+      </div>
+      <div class="subtitlePadding">
+        <div></div>
+      </div>
+      <h1 class="subtitle"> MINTMC </h1>
+      <div class="subtitlePadding">
+        <div></div>
+      </div>
+      <div class="subtitlePadding">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- About Me section -->
+    <div class="sectionContainer">
+      <h2 class="sectionTitle">About Me</h2>
+      <p>I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd. <br>
+        I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS.<br>
+
+      </p>
+    </div>
+
+    <img class="main" src="{{ url_for('static', filename='images/image.png')}}" alt="Test image">
+
+  </main>
+
+
+
+</body>
+
 </html>

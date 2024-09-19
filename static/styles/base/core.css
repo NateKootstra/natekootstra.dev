@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(40, 70, 40);
+    margin: 0px;
+    height: 100%;
+}
+
+p {
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(230, 255, 230);
+}

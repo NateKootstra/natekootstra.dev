@@ -1,0 +1,40 @@
+h2.sectionTitle {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: fit-content;
+
+    font-size: calc(20px + 1.5vw);
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(200, 255, 200);
+}
+
+
+
+div.sectionContainer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 0px;
+
+    width: 65%;
+    height: fit-content;
+
+    border-radius: 15px;
+    border: 1px solid white;
+
+    background-color: black;
+}
+
+div.sectionContainer * {
+    color: white;
+}
+
+div.sectionContainer p {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    text-align: center;
+
+    font-size: calc(15px + 0.5vw);
+}

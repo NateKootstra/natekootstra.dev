@@ -1,0 +1,74 @@
+div.navbarSection {
+    background-color: black;
+    background-clip: content-box padding-box;
+
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vw;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+h1.title {
+    margin: 0;
+
+    width: fit-content;
+
+    display: flex;
+
+    border-bottom: 1px solid;
+
+    font-size: 4vw;
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(200, 255, 200);
+}
+
+
+
+li.navbar {
+    list-style: none;
+}
+
+li.navbar a {
+    margin-left: -2.5px;
+    margin-right: -2.5px;
+
+    padding-top: calc(7.5px + 0.5vw);
+    padding-bottom: calc(5px + 0.5vw);
+    padding-left: calc(5px + 1vw);
+    padding-right: calc(5px + 1vw);
+
+    width: fit-content;
+
+    display: inline-block;
+
+    border-bottom: 1px solid;
+
+    font-size: 2.5vw;
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(200, 255, 200);
+    text-decoration: none;
+}
+
+li.navbar a.selected {
+    padding-left: calc(4px + 1vw);
+    padding-right: calc(4px + 1vw);
+
+
+    border-top: 1px solid;
+    border-bottom: 0px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+}
+
+li.navbar a:first-child {
+    border-left: 0px solid;
+}
+
+li.navbar a:last-child {
+    border-right: 0px solid;
+}

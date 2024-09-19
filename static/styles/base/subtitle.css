@@ -1,0 +1,36 @@
+h1.subtitle {
+    margin: 0;
+    padding-right: calc(2px + 0.5vw);
+    padding-left: calc(2px + 0.5vw);
+
+    width: fit-content;
+
+    display: flex;
+
+    border-top: 1px solid white;
+
+    padding-bottom: 0px;
+
+    font-size: 5vw;
+    font-family: "Courier New", "Lucida Console", monospace;
+    color: rgb(255, 255, 255);
+}
+
+
+
+div.subtitleSection {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+div.subtitlePadding {
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+div.subtitlePadding div {
+    position: relative;
+    height: 50%;
+    width: 100%;
+}

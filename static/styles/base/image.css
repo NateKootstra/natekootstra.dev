@@ -1,0 +1,11 @@
+img.main {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+    display: block;
+
+    width: 30%;
+
+    border-radius: 15px;
+}
