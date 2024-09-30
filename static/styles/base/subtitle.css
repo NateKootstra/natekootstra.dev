@@ -13,7 +13,9 @@ h1.subtitle {
 
     font-size: 5vw;
     font-family: "Courier New", "Lucida Console", monospace;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255, 0.95);
+
+    text-shadow: -1px 0 rgb(50, 50, 50), 0 1px rgb(50, 50, 50), 1px 0 rgb(50, 50, 50), 0 -1px rgb(50, 50, 50);
 }
 
 

@@ -26,14 +26,24 @@
 
     <!-- Navbar Section -->
     <div class="navbarSection">
-      <h1 class="title"> Nate Kootstra </h1>
+      <div class="title">
+        <h1 class="title">Nate Kootstra</h1>
+        <!-- Social Media Links -->
+        <div class="social">
+          <a href="https://github.com/natekootstra">
+            <img class="social" src="{{ url_for('static', filename='images/icons/github.png')}}">
+          </a>
+        </div>
+      </div>
+      <!-- Navigation Bar -->
       <li class="navbar">
-        <a href="/" class="selected"> Home </a>
-        <a href="/mintmc"> MintMC </a>
-        <a href="/coming-soon"> NFCLib </a>
-        <a href="/coming-soon"> CBOD </a>
+        <a href="/" class="selected">Home</a>
+        <a href="/mintmc">MintMC</a>
+        <a href="/coming-soon">NFCLib</a>
+        <a href="/coming-soon">CBOD</a>
       </li>
     </div>
+    <!-- Navbar Section End -->
 
     <!-- Subtitle Section -->
     <div class="subtitleSection">
@@ -44,7 +54,7 @@
       <div class="subtitlePadding">
         <div></div>
       </div>
-      <h1 class="subtitle"> HOME </h1>
+      <h1 class="subtitle">HOME</h1>
       <div class="subtitlePadding">
         <div></div>
       </div>
@@ -52,29 +62,35 @@
         <div></div>
       </div>
     </div>
+    <!-- Subtitle Section End -->
 
-    <!-- About Me section -->
+    <!-- About Me Section -->
     <div class="sectionContainer">
-      <h2 class="sectionTitle"> About Me </h2>
+      <h2 class="sectionTitle">About Me</h2>
 
-      <p> I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd. <br>
-        I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS. <br>
-        I also participate in FIRST robotics, on team 772, where we compete each year to build and drive the best robots
-        for specific tasks. <br>
+      <p> I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd.<br>
+        I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS.<br>
+        I also participate in FIRST robotics, on team 772, where we compete each year to build and drive the best
+        robots
+        for specific tasks.<br>
       </p>
     </div>
 
-    <!-- About Me section -->
+    <!-- My Hobbies -->
     <div class="sectionContainer">
-      <h2 class="sectionTitle"> About Me </h2>
+      <h2 class="sectionTitle">About Me</h2>
 
-      <p> I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd. <br>
-        I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS. <br>
+      <p> I'm Nate! A hobbiest software developer, occaisonal web developer, and general nerd.<br>
+        I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS.<br>
+        I also participate in FIRST robotics, on team 772, where we compete each year to build and drive the best
+        robots
+        for specific tasks.<br>
       </p>
     </div>
 
-    <img class="main" src="{{ url_for('static', filename='images/nate.jpg')}}"
-      alt="Photo of me in the 772 robotics room.">
+    <!-- Image -->
+    <!-- <img class="main" src="{{ url_for('static', filename='images/nate.jpg')}}" -->
+    <!-- alt="Photo of me in the 772 robotics room."> -->
 
   </main>
 

@@ -23,7 +23,7 @@ div.sectionContainer {
     border-radius: 15px;
     border: 1px solid white;
 
-    background-color: black;
+    background-color: rgb(0, 0, 0, 0.55);
 }
 
 div.sectionContainer * {
