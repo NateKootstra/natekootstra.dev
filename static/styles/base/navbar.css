@@ -11,6 +11,12 @@ div.navbarSection {
     align-items: center;
 }
 
+div.social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 
 h1.title {
@@ -24,7 +30,7 @@ h1.title {
 
     font-size: 4vw;
     font-family: "Courier New", "Lucida Console", monospace;
-    color: rgb(220, 255, 220);
+    color: rgb(230, 255, 230);
 }
 
 
@@ -50,7 +56,7 @@ li.navbar a {
 
     font-size: 2.5vw;
     font-family: "Courier New", "Lucida Console", monospace;
-    color: rgb(220, 255, 220);
+    color: rgb(230, 255, 230);
     text-decoration: none;
 }
 

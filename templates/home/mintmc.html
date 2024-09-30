@@ -27,7 +27,33 @@
 
     <!-- Navbar Section -->
     <div class="navbarSection">
-      <h1 class="title">Nate Kootstra</h1>
+      <div class="title">
+        <h1 class="title">Nate Kootstra</h1>
+        <!-- Social Media Links -->
+        <div class="social">
+          <!-- Github -->
+          <a href="https://github.com/natekootstra">
+            <img class="social" src="{{ url_for('static', filename='images/icons/github.png')}}">
+          </a>
+          <!-- StackOverflow -->
+          <a href="https://stackoverflow.com/users/27553756/nate-kootstra">
+            <img class="social" src="{{ url_for('static', filename='images/icons/stackoverflow.png')}}">
+          </a>
+          <a href="https://github.com/natekootstra">
+            <img class="social" src="{{ url_for('static', filename='images/icons/linkedin.png')}}">
+          </a>
+          <a href="https://www.youtube.com/@NateKootstra/featured">
+            <img class="social" src="{{ url_for('static', filename='images/icons/youtube.png')}}">
+          </a>
+          <a href="https://github.com/natekootstra">
+            <img class="social" src="{{ url_for('static', filename='images/icons/discord.png')}}">
+          </a>
+          <a href="mailto:natekootstra@gmail.com">
+            <img class="social" src="{{ url_for('static', filename='images/icons/email.png')}}">
+          </a>
+        </div>
+      </div>
+      <!-- Navigation Bar -->
       <li class="navbar">
         <a href="/">Home</a>
         <a href="/mintmc" class="selected">MintMC</a>
@@ -35,6 +61,7 @@
         <a href="/coming-soon">CBOD</a>
       </li>
     </div>
+    <!-- Navbar Section End -->
 
     <!-- Subtitle Section -->
     <div class="subtitleSection">
