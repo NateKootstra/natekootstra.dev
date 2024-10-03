@@ -7,6 +7,8 @@
   <title> Nate Kootstra </title>
 
 
+  <!-- Assets to Load -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/core.css')}}">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/image.css')}}">
@@ -15,8 +17,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/base/subtitle.css')}}">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/home/subtitle.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home/darkness.css')}}">
 
   <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
+  <!-- Assets End -->
+
 
 </head>
 
@@ -38,15 +43,19 @@
           <a href="https://stackoverflow.com/users/27553756/nate-kootstra">
             <img class="social" src="{{ url_for('static', filename='images/icons/stackoverflow.png')}}">
           </a>
+          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/nate-kootstra-023808330/">
             <img class="social" src="{{ url_for('static', filename='images/icons/linkedin.png')}}">
           </a>
+          <!-- Youtube -->
           <a href="https://www.youtube.com/@NateKootstra/featured">
             <img class="social" src="{{ url_for('static', filename='images/icons/youtube.png')}}">
           </a>
+          <!-- Discord -->
           <a href="https://discord.com/users/707734489622904932">
             <img class="social" src="{{ url_for('static', filename='images/icons/discord.png')}}">
           </a>
+          <!-- Email -->
           <a href="mailto:natekootstra@gmail.com">
             <img class="social" src="{{ url_for('static', filename='images/icons/email.png')}}">
           </a>
@@ -56,8 +65,8 @@
       <li class="navbar">
         <a href="/" class="selected">Home</a>
         <a href="/mintmc">MintMC</a>
-        <a href="/coming-soon">NFCLib</a>
         <a href="/coming-soon">CBOD</a>
+        <a href="/coming-soon">LiftEM</a>
       </li>
     </div>
     <!-- Navbar Section End -->
@@ -87,26 +96,30 @@
     <div class="sectionContainer">
       <h2 class="sectionTitle">About Me</h2>
 
-      <p> I'm Nate! A hobbiest software developer, web developer, and general nerd.<br>
-        I primarily program in Java, Python, and C# and do web development using Flask and HTML/CSS/JS.<br>
-        I also participate in FIRST robotics, on team 772, where we compete each year to build and drive the best
-        robots
-        for specific tasks.<br>
+      <p>
+        I'm Nate! A hobbiest software developer, web developer, and general nerd.<br>
+        I primarily program in Java, Python, and C#, and do webAlong with programming, I also enjoy doing music
+        composition and videography.<br> development using Flask with HTML/CSS/JS.<br>
+        I also participate in FIRST robotics on team 772, where we compete each year to build and drive the best
+        robots for specific tasks.<br>
+        If you have an interesting project idea, send me an email. I'll do it for free if it seems fun!<br>
       </p>
     </div>
     <!-- About Me Section End -->
 
-    <!-- My Hobbies -->
+    <!-- My Hobbies Section -->
     <div class="sectionContainer">
       <h2 class="sectionTitle">My Hobbies</h2>
 
-      <p> Along with programming, I also enjoy music composition and videography.<br>
+      <p>
+        Along with programming, I also enjoy doing music composition and videography.<br>
+        I love creating open-source tools and projects, for myself, clubs, or even local businesses!<br>
+        I also love learning about different technologies, such as NFC chips and data transfer protocols.<br>
       </p>
     </div>
+    <!-- My Hobbies Section End -->
 
   </main>
-
-
 
 </body>
 

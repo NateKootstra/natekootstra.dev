@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory, url_for
 import os.path
 
 app = Flask(__name__)
@@ -20,5 +20,4 @@ def other_page(path):
     return "File not found"
 
 if __name__ == "__main__":
-    context = ("ssl/local.crt", "ssl/local.key")
-    app.run(debug=True, host="0.0.0.0", port=5000, ssl_context=context)
+    app.run(debug=True, host="0.0.0.0", port=5000, ssl_context=("ssl/local.crt", "ssl/local.key"))

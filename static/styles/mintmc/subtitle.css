@@ -7,7 +7,6 @@ div.subtitlePadding:nth-child(1) div {
 }
 
 div.subtitlePadding:nth-child(2) div {
-    background-color: rgb(0, 0, 0, 0.7);
 
     height: 50%;
 
@@ -16,7 +15,6 @@ div.subtitlePadding:nth-child(2) div {
 }
 
 div.subtitlePadding:nth-child(4) div {
-    background-color: rgb(0, 0, 0, 0.7);
 
     height: 50%;
     width: calc(100% - 1px);
@@ -28,14 +26,12 @@ div.subtitlePadding:nth-child(4) div {
 div.subtitlePadding:nth-child(5) div:nth-child(1) {
     height: 50%;
 
-    background-color: rgb(0, 0, 0, 0.7);
     border-left: none;
 }
 
 div.subtitlePadding:nth-child(5) div:nth-child(2) {
     height: 50%;
 
-    background-color: rgb(0, 0, 0, 0.7);
     border-bottom: 1px solid white;
     border-left: 1px solid white;
 }

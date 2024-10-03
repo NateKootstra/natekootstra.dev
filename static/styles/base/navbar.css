@@ -1,10 +1,9 @@
 div.navbarSection {
-    background-color: rgb(0, 0, 0, 0.7);
     background-clip: content-box padding-box;
 
     padding-left: 2vw;
     padding-right: 2vw;
-    padding-top: 2vw;
+    padding-top: 1.5vw;
     padding-bottom: 0vw;
     display: flex;
     justify-content: space-between;
@@ -37,6 +36,7 @@ h1.title {
 
 li.navbar {
     list-style: none;
+    margin-bottom: 2vw;
 }
 
 li.navbar a {
