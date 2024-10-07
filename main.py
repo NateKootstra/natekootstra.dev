@@ -18,7 +18,7 @@ def index():
 def other_page(path):
     if os.path.isfile('templates/home/' + links.get(path)):
         return render_template('home/' + links.get(path))
-    return "File not found"
+    return "Page not found"
 
 
 # Start the application.
