@@ -5,10 +5,11 @@ app = Flask(__name__)
 
 links = {
     "coming-soon" : "comingSoon.html",
-
     "mintmc" : "mintmc.html"
 }
 
+
+# Public facing page directs.
 @app.route("/")
 def index():
     return render_template('home/index.html')
@@ -19,5 +20,7 @@ def other_page(path):
         return render_template('home/' + links.get(path))
     return "File not found"
 
+
+# Start the application.
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000, ssl_context=("ssl/local.crt", "ssl/local.key"))
