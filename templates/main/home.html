@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+
+{% block head %}
+<title>Team 772 | Sabre Bytes Robotics</title>
+<style>
+    .verticaldivider {
+        display: inline-block;
+    }
+
+    .mainimg {
+        width: 53vw;
+        margin-left: 1.5vw;
+        margin-top: 0.4vw;
+        position: absolute;
+    }
+
+    .textcontainer {
+        margin-top: 0.1vw;
+        margin-left: 55.4vw;
+        width: 38vw;
+        display: inline-block
+    }
+
+    @media (max-width: 767px) and (orientation: portrait) {
+        .mainimg {
+            width: 90vw;
+            margin-left: 5vw;
+            position: static;
+        }
+
+        .textcontainer {
+            margin-top: 4vw;
+            margin-left: 5vw;
+            width: 90vw;
+            text-align: center;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="verticaldivider desktop" style="margin-left: 20vw;"></div>
+<h1 class="subtitle">About Team 772</h1>
+<div class="divider desktop" style="margin-left: 20vw; width: 35vw;"></div>
+<img class="mainimg" src="{{ url_for('static', filename='images/main/24-25_team_photo_bw.png' )}}"/>
+<div style="height: 25.15vw">
+    <div class="verticaldivider desktop" style="height: 25.4vw; margin-left: 54.9vw;"></div>
+    <div class="textcontainer">
+        <p>
+            The Sabre Bytes robotics team was established in 2001 at Sandwich Secondary School (LaSalle, Ontario).
+            We compete each year in the FIRST Robotics Competition with the goal of making the best robot possible.
+            Our members (from Sandwich and from other schools) work together to design, build, wire, and program these robots.
+            <br/>
+            However, building robots isn't the only thing we do.
+            Each year, team 772 competes to try and win the prestigious FIRST Impact Award.
+            This requires us to document and present the many initiatives we take on to spread STEAM and help our community.
+            <br/>
+            Funded by our generous sponsors (who can be found on the Sponsor Information page), our team helps students develop their skills and build friendships alongside robots.
+        </p>
+    </div>
+</div>
+<div class="divider desktop"></div>
+{% endblock %}

@@ -1,0 +1,4 @@
+<div>
+    <h1>{{ get_user(message["sender"])["display"] }} - {{ (message["timestamp"]|fromutc) }}</h1>
+    <p>{{ message["content"] }}</p>
+</div>

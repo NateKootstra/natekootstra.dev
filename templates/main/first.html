@@ -1,0 +1,134 @@
+{% extends 'main.html' %}
+
+{% block head %}
+<title>FIRST | 772</title>
+{% endblock %}
+
+{% block content %}
+<!-- DESKTOP VERSION -->
+<div class="desktop">
+    <div class="verticaldivider desktop" style="margin-left: 12.5vw;"></div>
+    <h1 class="subtitle">About FIRST</h1>
+    <div class="divider desktop" style="margin-left: 12.5vw; width: 47.5vw;"></div>
+    <img class="desktop" style="width: 17vw; margin-left: 12.5vw; margin-top: 0.4vw; position: absolute;"
+        src="{{ url_for('static', filename='images/main/kamen.png' )}}" />
+    <div style="height: 24.8vw">
+        <div class="verticaldivider desktop" style="height: 25vw; margin-left: 29.9vw;"></div>
+        <div style="margin-top: 6vw; margin-left: 35vw; width: 60vw; display: inline-block;">
+            <h2>
+                "Our vision is to transform our culture by creating a world where science and technology are celebrated
+                and where young people dream of becoming science and technology leaders."
+                <br />
+                -Dean Kamen, Founder of FIRST
+                <br />
+            </h2>
+        </div>
+    </div>
+    <div class="divider desktop" style="margin-left: 29.9vw; width: 40.1vw;"></div>
+    <div style="height: 12.5vw">
+        <div class="verticaldivider desktop" style="height: 12.7vw; margin-left: 69.9vw;"></div>
+        <div style="margin-top: 0.8vw; margin-left: 28.5vw; width: 40vw; display: inline-block; text-align: right;">
+            <p>
+                FIRST is a non-profit, educational organization that was founded to inspire young people to be science
+                and technology leaders and innovators, by engaging them in exciting programs that build science,
+                engineering, and technology skills, that inspire innovation, and that foster well-rounded life
+                capabilities including self-confidence, communication, and leadership.
+            </p>
+        </div>
+        <h3 style="margin-top: 0.5vw; margin-left: 3vw; display: inline-block; vertical-align: top;">
+            What<br />is<br />FIRST?</h3>
+    </div>
+    <div class="divider desktop" style="margin-left: 20vw; width: 50vw;"></div>
+    <div style="height: 12.5vw">
+        <div class="verticaldivider desktop" style="height: 12.7vw; margin-left: 20vw;"></div>
+        <h3 class="even"
+            style="margin-top: 2.5vw; margin-left: 11.2vw; display: inline-block; vertical-align: top; text-align: right;">
+            The<br />Goal</h3>
+        <div style="margin-top: 0.9vw; margin-left: 3vw; width: 45vw; display: inline-block; text-align: left;">
+            <p>
+                The FIRST Robotics Competition challenges teams of students and their mentors to design and build a
+                robot”.
+                Each team has to analyze the game and figure out what type of robot would perform well.
+                The goal isn’t simply to build a robot; the robot is a vehicle for learning much more.
+                The real goal is building a collaborative team, a supportive community and a solid strategy for problem
+                solving during the competition.
+            </p>
+        </div>
+    </div>
+    <div class="divider desktop" style="margin-left: 20vw; width: 50vw;"></div>
+    <div style="height: 12.5vw">
+        <div class="verticaldivider desktop" style="height: 12.7vw; margin-left: 69.9vw;"></div>
+        <div style="margin-top: 0.8vw; margin-left: 20.5vw; width: 48vw; display: inline-block; text-align: right;">
+            <p>
+                FIRST builds alliances that inspire and prepare the talent pool, workforce, leaders and capable,
+                technologically literate citizens of tomorrow.
+                They do this with a large community of students, educators, parents, volunteers and sponsors.
+                FIRST designs accessible, innovative programs that build self-confidence, knowledge and life skills
+                while motivating young people to pursue opportunities in science, technology and engineering.
+            </p>
+        </div>
+        <h3 style="margin-top: 0.5vw; margin-left: 3vw; display: inline-block; vertical-align: top;">
+            How<br />it<br />Works</h3>
+    </div>
+    <div class="divider desktop" style="margin-left: 20vw; width: 50vw;"></div>
+    <div style="height: 12.5vw">
+        <div class="verticaldivider desktop" style="height: 12.7vw; margin-left: 20vw;"></div>
+        <h3 class="even"
+            style="margin-top: 0.5vw; margin-left: 4vw; display: inline-block; vertical-align: top; text-align: right;">
+            What<br />is<br />Winning?</h3>
+        <div style="margin-top: 0.9vw; margin-left: 3vw; width: 45vw; display: inline-block; text-align: left;">
+            <p>
+                FIRST redefines winning for these students.
+                Scoring the greatest number of points is terrific, but winning comes with excellence in design, team
+                spirit, gracious professionalism, and the ability to overcome obstacles.
+                <br />
+                Winning means building partnerships with other students, with professionals, between school and business
+                and among communities.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- MOBILE VERSION -->
+<div class="mobile" style="width: 90vw; margin-left: 5vw;">
+    <div class="verticaldivider desktop" style="margin-left: 12.5vw;"></div>
+    <h1 class="subtitle">About FIRST</h1>
+    <h2 style="margin-bottom: 8vw; margin-top: 2vw;">
+        "Our vision is to transform our culture by creating a world where science and technology are celebrated and
+        where young people dream of becoming science and technology leaders."
+        <br />
+        -Dean Kamen, Founder of FIRST
+        <br />
+    </h2>
+    <h3 style="width: 100%; text-align: center;">What is FIRST?</h3>
+    <p style="text-align: center; margin-bottom: 4vw;">
+        FIRST is a non-profit, educational organization that was founded to inspire young people to be science and
+        technology leaders and innovators, by engaging them in exciting programs that build science, engineering, and
+        technology skills, that inspire innovation, and that foster well-rounded life capabilities including
+        self-confidence, communication, and leadership.
+    </p>
+    <h3 class="even" style="width: 100%; text-align: center;">The Goal</h3>
+    <p style="text-align: center; margin-bottom: 4vw;">
+        The FIRST Robotics Competition challenges teams of students and their mentors to design and build a robot”.
+        Each team has to analyze the game and figure out what type of robot would perform well.
+        The goal isn’t simply to build a robot; the robot is a vehicle for learning much more.
+        The real goal is building a collaborative team, a supportive community and a solid strategy for problem solving
+        during the competition.
+    </p>
+    <h3 style="width: 100%; text-align: center;">How it Works</h3>
+    <p style="text-align: center; margin-bottom: 4vw;">
+        FIRST builds alliances that inspire and prepare the talent pool, workforce, leaders and capable, technologically
+        literate citizens of tomorrow.
+        They do this with a large community of students, educators, parents, volunteers and sponsors.
+        FIRST designs accessible, innovative programs that build self-confidence, knowledge and life skills while
+        motivating young people to pursue opportunities in science, technology and engineering.
+    </p>
+    <h3 class="even" style="width: 100%; text-align: center;">What is Winning?</h3>
+    <p style="text-align: center; margin-bottom: 4vw;">
+        FIRST redefines winning for these students.
+        Scoring the greatest number of points is terrific, but winning comes with excellence in design, team spirit,
+        gracious professionalism, and the ability to overcome obstacles.
+        Winning means building partnerships with other students, with professionals, between school and business and
+        among communities.
+    </p>
+</div>
+{% endblock %}

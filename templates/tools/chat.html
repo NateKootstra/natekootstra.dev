@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <style>
+        .chat {
+            height: calc(100dvh - calc(5.2vw * var(--title-scale)));
+            display: flex;
+        }
+
+        .channels, .people {
+            width: 14.9vw;
+            height: 100%;
+        }
+
+        .channels p {
+            margin-top: 0.3vw;
+            margin-bottom: 0.3vw;
+            margin-left: 0.4vw;
+            font-size: 1.25vw;
+        }
+        
+        .people p {
+            margin-top: 0.3vw;
+            margin-bottom: 0.3vw;
+            margin-right: 0.4vw;
+            font-size: 1.25vw;
+        }
+
+        .verticaldivider {
+            width: 0.1vw;
+            height: 100%;
+            background-color: #fff;
+
+            filter: drop-shadow(0 0 calc(0.1vw * var(--title-scale)) #d112d8) drop-shadow(0 0 calc(0.3vw * var(--title-scale)) #d112d8)  drop-shadow(0 0 calc(0.5vw * var(--title-scale)) #d112d8);
+        }
+        
+        .subdivider {
+            height: calc(0.1vw * var(--title-scale));
+            width: 100%;
+            background-color: #fff;
+
+            filter: drop-shadow(0 0 calc(0.1vw * var(--title-scale)) #d112d8) drop-shadow(0 0 calc(0.3vw * var(--title-scale)) #d112d8)  drop-shadow(0 0 calc(0.5vw * var(--title-scale)) #d112d8);
+        }
+
+        .main {
+            width: 70vw;
+            height: 100%;
+            flex-direction: columns;
+        }
+
+        .messages {
+            width: calc(100% - 3vh);
+            height: calc(calc(90% - calc(0.1vw * var(--title-scale))) - 2.5vh);
+            overflow-y: auto;
+
+            margin-left: 1.5vh;
+            margin-right: 1.5vh;
+            margin-top: 1vh;
+            margin-bottom: 1.5vh;
+
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .messages div {
+            margin-bottom: 2vh;
+        }
+
+        .messages div:nth-child(1) {
+            margin: 0;
+        }
+
+        .messages h1 {
+            font-size: 2.5vh;
+            text-decoration: underline;
+        }
+
+        .messages p {
+            font-size: 2vh;
+        }
+
+        .newmessage {
+            width: 100%;
+            height: 10%;
+            display: flex;
+        }
+
+        .newmessage textarea {
+            margin-left: 0.3vh;
+            flex: 1;
+            height: 100%;
+            font-size: 2vh;
+            background-color: black;
+            border: none;
+            resize: none;
+        }
+
+        .newmessage textarea:focus {
+            outline: none;
+        }
+
+        .newmessage img {
+            height: 100%;
+            padding: 0.5vh;
+        }
+
+        @media (max-width: 767px) and (orientation: portrait) {
+            .chat {
+                height: calc(100dvh - calc(11.25vw * var(--title-scale)));
+            }
+        }
+    </style>
+    <script>
+        function switchChannel(channel) {
+            document.cookie = "channel=" + channel;
+            location.reload();
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="chat">
+        <div class="channels">
+            {% for channel in get_channels() %}
+                {% if channel["selected"] %}
+                    <p>> {{ channel["name"] }}</p>
+                {% else %}
+                    <button style="background: none; border: none; width: 100%; text-align: left;" onclick="switchChannel('{{ channel["name"] }}')"><p>{{ channel["name"] }}</p></button>
+                {% endif %}
+                <div class="subdivider"></div>
+            {% endfor %}
+        </div>
+        <div class="verticaldivider"></div>
+        <div class="main">
+            <div class="messages">
+                {% for message in get_channel()["messages"]|reverse %}
+                    {% include 'tools/chat-message.html' %}
+                {% endfor %}
+            </div>
+            <div class="subdivider"></div>
+            <div class="newmessage">
+                <textarea></textarea>
+                <img src="{{ url_for('static', filename='images/icons/send.png' )}}"></src>
+            </div>
+        </div>
+        <div class="verticaldivider"></div>
+        <div class="people">
+            {% for user in get_users() %}
+                <p style="text-align: right">{{ user["display"] }}</p>
+                <div class="subdivider"></div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

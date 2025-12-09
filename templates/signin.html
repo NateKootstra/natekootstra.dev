@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Sign In | 772</title>
+
+<style>
+    .signin {
+        text-align: center;
+    }
+
+    .signin input {
+        width: calc(40vw * var(--signin-scale));
+        display: block;
+        margin-top: calc(1vw * var(--signin-scale));
+        margin-left: auto;
+        margin-right: auto;
+        background-color: black;
+        text-align: center;
+        font-size: calc(3vw * var(--signin-scale));
+        border: calc(0.18vw * var(--signin-scale)) #eeeeee solid;
+        border-radius: calc(1.2vw * var(--signin-scale));
+        padding: calc(0.20vw * var(--signin-scale));
+        box-shadow:
+            0 0 calc(0.10vw * var(--signin-scale)) #ff7423,
+            0 0 calc(0.50vw * var(--signin-scale)) #ff7423,
+            0 0 calc(1.00vw * var(--signin-scale)) #ff7423,
+            inset 0 0 calc(0.10vw * var(--signin-scale)) #ff7423,
+            inset 0 0 calc(0.50vw * var(--signin-scale)) #ff7423,
+            inset 0 0 calc(1.00vw * var(--signin-scale)) #ff7423;
+        text-shadow:
+            0 0 calc(0.02vw * var(--signin-scale)) #888888,
+            0 0 calc(0.10vw * var(--signin-scale)) #888888,
+            0 0 calc(0.30vw * var(--signin-scale)) #888888,
+            0 0 calc(0.50vw * var(--signin-scale)) #888888;
+    }
+
+    .signin input:nth-child(even) {
+        box-shadow:
+            0 0 calc(0.10vw * var(--signin-scale)) #23a7ff,
+            0 0 calc(0.50vw * var(--signin-scale)) #23a7ff,
+            0 0 calc(1.00vw * var(--signin-scale)) #23a7ff,
+            inset 0 0 calc(0.10vw * var(--signin-scale)) #23a7ff,
+            inset 0 0 calc(0.50vw * var(--signin-scale)) #23a7ff,
+            inset 0 0 calc(1.00vw * var(--signin-scale)) #23a7ff;
+    }
+
+    .signin input::placeholder {
+        opacity: 0.8;
+    }
+
+    .signin input:focus {
+        outline: none;
+        box-shadow:
+            0 0 calc(0.10vw * var(--signin-scale)) #ff7423,
+            0 0 calc(1.00vw * var(--signin-scale)) #ff7423,
+            0 0 calc(2.00vw * var(--signin-scale)) #ff7423,
+            inset 0 0 calc(0.10vw * var(--signin-scale)) #ff7423,
+            inset 0 0 calc(0.50vw * var(--signin-scale)) #ff7423,
+            inset 0 0 calc(1.00vw * var(--signin-scale)) #ff7423;
+    }
+
+    .signin input:focus:nth-child(even) {
+        outline: none;
+        box-shadow:
+            0 0 calc(0.10vw * var(--signin-scale)) #23a7ff,
+            0 0 calc(1.00vw * var(--signin-scale)) #23a7ff,
+            0 0 calc(2.00vw * var(--signin-scale)) #23a7ff,
+            inset 0 0 calc(0.10vw * var(--signin-scale)) #23a7ff,
+            inset 0 0 calc(0.50vw * var(--signin-scale)) #23a7ff,
+            inset 0 0 calc(1.00vw * var(--signin-scale)) #23a7ff;
+    }
+
+    .signin button {
+        width: calc(40vw * var(--signin-scale));
+        display: block;
+        margin-top: calc(2vw * var(--signin-scale));
+        margin-left: auto;
+        margin-right: auto;
+        background-color: black;
+        text-align: center;
+        font-size: calc(3vw * var(--signin-scale));
+        border: calc(0.18vw * var(--signin-scale)) #eeeeee solid;
+        border-radius: calc(1.2vw * var(--signin-scale));
+        padding: calc(0.20vw * var(--signin-scale));
+        box-shadow:
+            0 0 calc(0.10vw * var(--signin-scale)) #23ff53,
+            0 0 calc(0.50vw * var(--signin-scale)) #23ff53,
+            0 0 calc(1.00vw * var(--signin-scale)) #23ff53,
+            inset 0 0 calc(0.10vw * var(--signin-scale)) #23ff53,
+            inset 0 0 calc(0.50vw * var(--signin-scale)) #23ff53,
+            inset 0 0 calc(1.00vw * var(--signin-scale)) #23ff53;
+        text-shadow:
+            0 0 calc(0.02vw * var(--signin-scale)) #888888,
+            0 0 calc(0.10vw * var(--signin-scale)) #888888,
+            0 0 calc(0.30vw * var(--signin-scale)) #888888,
+            0 0 calc(0.50vw * var(--signin-scale)) #888888;
+    }
+
+    .signin button:hover {
+        box-shadow:
+            0 0 calc(0.10vw * var(--signin-scale)) #23ff53,
+            0 0 calc(1.00vw * var(--signin-scale)) #23ff53,
+            0 0 calc(2.00vw * var(--signin-scale)) #23ff53,
+            inset 0 0 calc(0.10vw * var(--signin-scale)) #23ff53,
+            inset 0 0 calc(0.50vw * var(--signin-scale)) #23ff53,
+            inset 0 0 calc(1.00vw * var(--signin-scale)) #23ff53;
+    }
+</style>
+<script>
+    lock = false
+
+    function signin() {
+        if (lock)
+            return
+        lock = true
+        request = new XMLHttpRequest();
+        request.open("GET", "api/signin", false)
+        request.setRequestHeader("username", document.getElementById("signin-username").value)
+        request.setRequestHeader("password", document.getElementById("signin-password").value)
+        request.onload = () => {
+            if (request.response == "OK")
+                location.reload()
+            else
+                alert(request.response)
+            lock = false
+        };
+        request.send();
+    }
+    function signup() {
+        if (lock)
+            return
+        lock = true
+        request = new XMLHttpRequest();
+        request.open("GET", "api/signup", false)
+        request.setRequestHeader("display", document.getElementById("signup-display").value)
+        request.setRequestHeader("username", document.getElementById("signup-username").value)
+        request.setRequestHeader("password", document.getElementById("signup-password").value)
+        request.setRequestHeader("password2", document.getElementById("signup-password2").value)
+        request.onload = () => {
+            if (request.response == "OK")
+                location.reload()
+            else
+                alert(request.response)
+            lock = false
+        };
+        request.send();
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+    <h1 class="subtitle">Sign In</h1>
+    <div class="signin" signin>
+        <input maxlength="20" id="signin-username" placeholder="Username"></input>
+        <input maxlength="20" id="signin-password" placeholder="Password" type="password"></input>
+        <button onclick="signin()">Submit</button>
+    </div>
+    <div style="margin-top: calc(3vw * var(--signin-scale));"></div>
+    <h1 class="subtitle">Sign Up</h1>
+    <div class="signin" signin>
+        <input maxlength="20" id="signup-display" placeholder="Display Name"></input>
+        <input maxlength="20" id="signup-username" placeholder="Username"></input>
+        <input maxlength="20" id="signup-password" placeholder="Password" type="password"></input>
+        <input maxlength="20" id="signup-password2" placeholder="Repeat Password" type="password"></input>
+        <button onclick="signup()">Submit</button>
+    </div>
+{% endblock %}

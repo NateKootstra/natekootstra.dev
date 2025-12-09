@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <style>
+    .navbar .bg {
+      height: 12vw;
+    }
+
+    @media (max-width: 767px) and (orientation: portrait) {
+      .navbar .bg {
+        height: 65vw;
+      }
+    }
+
+    p {
+      color: white;
+      font-size: calc(1.2vw * var(--text-scale));
+      text-shadow:
+        0 0 calc(0.05vw * var(--text-scale)) #fff,
+        0 0 calc(0.1vw * var(--text-scale)) #fff;
+    }
+
+    h3 {
+      color: white;
+      font-size: calc(3vw * var(--subtitle-scale));
+      text-shadow:
+        0 0 calc(0.10vw * var(--subtitle-scale)) #ff7423,
+        0 0 calc(0.30vw * var(--subtitle-scale)) #ff7423,
+        0 0 calc(0.50vw * var(--subtitle-scale)) #ff7423,
+        0 0 calc(0.70vw * var(--subtitle-scale)) #ff7423;
+    }
+
+    h3.even {
+      text-shadow:
+        0 0 calc(0.10vw * var(--subtitle-scale)) #23a7ff,
+        0 0 calc(0.30vw * var(--subtitle-scale)) #23a7ff,
+        0 0 calc(0.50vw * var(--subtitle-scale)) #23a7ff;
+    }
+
+    h2 {
+      color: white;
+      font-size: calc(2vw * var(--quote-scale));
+      text-align: center;
+      text-shadow:
+        0 0 calc(0.3vw * var(--quote-scale)) #23a7ff,
+        0 0 calc(0.7vw * var(--quote-scale)) #23a7ff;
+    }
+
+    .verticaldivider {
+      width: 0.1vw;
+      background-color: #fff;
+      height: 6.15vw;
+      position: absolute;
+
+      filter: drop-shadow(0 0 calc(0.1vw * var(--title-scale)) #d112d8) drop-shadow(0 0 calc(0.3vw * var(--title-scale)) #d112d8)  drop-shadow(0 0 calc(0.5vw * var(--title-scale)) #d112d8);
+    }
+  </style>
+  <div class="navbar pagewords" style="height: calc(2.9vw * var(--title-scale)); margin-right: calc(0.4vw * var(--title-scale));">
+    {% with page = get_page() %}
+      {% if page == "home" %}<a class="selected">> About Us</a>{% else %}<a href="/">> About Us </a>{% endif %}
+      {% if page == "first" %}<a class="selected">> About FIRST</a>{% else %}<a href="/first">> About FIRST</a>{% endif %}
+      {% if page == "initiatives" %}<a class="selected">> Our Initiatives</a>{% else %}<a href="/initiatives">> Our Initiatives </a>{% endif %}
+      {% if page == "sponsor" %}<a class="selected">> Sponsor Information</a>{% else %}<a href="/sponsor">> Sponsor Information</a>{% endif %}
+      {% if page == "resources" %}<a class="selected">> Resources</a>{% else %}<a href="/resources">> Resources</a>{% endif %}
+      {% if page == "media" %}<a class="selected">> Media</a>{% else %}<a href="/media">> Media</a>{% endif %}
+      {% if page == "contact" %}<a class="selected">> Contact Information</a>{% else %}<a href="/contact">> Contact Information</a>{% endif %}
+    {% endwith %}
+  </div>
+  <div class="divider"></div>
+{% endblock %}

@@ -1,0 +1,259 @@
+<!doctype html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/base/navbar.css')}}">
+
+<link rel="preload" as="font" href="{{ url_for('static', filename='fonts/KodeMono.ttf') }}" type="font/tff" crossorigin="anonymous">
+
+<style>
+  @font-face {
+    font-family: 'Kode Mono';
+    src: url({{ url_for('static', filename='fonts/KodeMono.ttf') }}) format("truetype");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+      --title-scale: 1;
+      --signin-scale: 1;
+      --text-scale: 1;
+      --quote-scale: 1;
+      --subtitle-scale: 1;
+  }
+
+  .mobile {
+      display: none;
+  }
+
+  body {
+    margin: 0px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  * {
+    font-family: "Kode Mono", "Courier New", "Lucida Console", monospace;
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  .navbar {
+    height: calc(4.9vw * var(--title-scale));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar .bg {
+    height: 5.5vw;
+    width: 100%;
+    position: absolute;
+    z-index: -10;
+    background: repeating-linear-gradient(
+      60deg,
+      #000000,
+      #000000 calc(2vw * var(--title-scale)),
+      #121212 calc(2vw * var(--title-scale)),
+      #121212 calc(4vw * var(--title-scale))
+    );
+  }
+
+  .divider {
+    width: 100vw;
+    margin-top: calc(0.2vw * var(--title-scale));
+    height: calc(0.1vw * var(--title-scale));
+    background-color: #fff;
+
+    filter: drop-shadow(0 0 calc(0.1vw * var(--title-scale)) #d112d8) drop-shadow(0 0 calc(0.3vw * var(--title-scale)) #d112d8)  drop-shadow(0 0 calc(0.5vw * var(--title-scale)) #d112d8);
+  }
+
+  .title {
+    width: fit-content;
+    margin-top: calc(-0.6vw * var(--title-scale));
+    margin-left: calc(0.2vw * var(--title-scale));
+  }
+
+  .title h1 {
+    font-size: calc(2.5vw * var(--title-scale));
+    text-shadow:
+      0 0 calc(0.1vw * var(--title-scale)) #ff7423,
+      0 0 calc(0.2vw * var(--title-scale)) #ff7423,
+      0 0 calc(0.4vw * var(--title-scale)) #ff7423,
+      0 0 calc(0.6vw * var(--title-scale)) #ff7423;
+  }
+
+  .title a {
+    text-decoration: none;
+    font-size: calc(1.0vw * var(--title-scale));
+    text-shadow:
+      0 0 calc(0.01vw * var(--title-scale)) #23a7ff,
+      0 0 calc(0.10vw * var(--title-scale)) #23a7ff,
+      0 0 calc(0.20vw * var(--title-scale)) #23a7ff,
+      0 0 calc(0.30vw * var(--title-scale)) #23a7ff;
+  }
+
+  .title a:hover {
+    text-shadow:
+      0 0 calc(0.02vw * var(--title-scale)) #23a7ff,
+      0 0 calc(0.40vw * var(--title-scale)) #23a7ff,
+      0 0 calc(0.60vw * var(--title-scale)) #23a7ff,
+      0 0 calc(0.80vw * var(--title-scale)) #23a7ff;
+  }
+
+  .pagebuttons {
+    margin-right: calc(0.4vw * var(--title-scale));
+  }
+
+  .pagebuttons img {
+    height: calc(3.5vw * var(--title-scale));
+    margin-left: calc(0.8vw * var(--title-scale));
+    filter: invert(100%) drop-shadow(0 0 calc(0.1vw * var(--title-scale)) #2382ff) drop-shadow(0 0 calc(0.5vw * var(--title-scale)) #2382ff);
+  }
+
+  .pagebuttons img:hover {
+    filter: invert(100%) drop-shadow(0 0 calc(0.3vw * var(--title-scale)) #2382ff) drop-shadow(0 0 calc(1.0vw * var(--title-scale)) #2382ff);
+  }
+
+  .pagewords {
+    width: 100vw;
+    text-align: center;
+    background: none;
+  }
+
+  .pagewords a {
+    text-decoration: none;
+    font-size: calc(1.2vw * var(--title-scale));
+    text-shadow:
+      0 0 calc(0.01vw * var(--title-scale)) #23ff53,
+      0 0 calc(0.10vw * var(--title-scale)) #23ff53,
+      0 0 calc(0.20vw * var(--title-scale)) #23ff53,
+      0 0 calc(0.30vw * var(--title-scale)) #23ff53;
+  }
+
+  .pagewords a:hover {
+    text-shadow:
+      0 0 calc(0.02vw * var(--title-scale)) #23ff53,
+      0 0 calc(0.40vw * var(--title-scale)) #23ff53,
+      0 0 calc(0.60vw * var(--title-scale)) #23ff53,
+      0 0 calc(0.80vw * var(--title-scale)) #23ff53;
+  }
+
+  .pagewords a.selected {
+    text-shadow:
+      0 0 calc(0.01vw * var(--title-scale)) #888888,
+      0 0 calc(0.10vw * var(--title-scale)) #888888,
+      0 0 calc(0.20vw * var(--title-scale)) #888888,
+      0 0 calc(0.30vw * var(--title-scale)) #23ff53;
+  }
+
+  .subtitle {
+    padding-top: calc(1vw * var(--title-scale));
+    padding-bottom: calc(1vw * var(--title-scale));
+    font-size: calc(3vw * var(--title-scale));
+    width: 100%;
+    text-align: center;
+    text-shadow:
+      0 0 calc(0.10vw * var(--title-scale)) #ff7423,
+      0 0 calc(0.30vw * var(--title-scale)) #ff7423,
+      0 0 calc(0.50vw * var(--title-scale)) #ff7423,
+      0 0 calc(0.70vw * var(--title-scale)) #ff7423;
+  }
+
+  @media (max-width: 767px) and (orientation: portrait) {
+    :root {
+      --title-scale: 3;
+      --signin-scale: 2;
+      --text-scale: 3;
+      --subtitle-scale: 2;
+    }
+
+    .navbar {
+      display: inline-block;
+      text-align: center;
+    }
+
+    .navbar .bg {
+      background: repeating-linear-gradient(
+        30deg,
+        #000000,
+        #000000 calc(2vw * var(--title-scale)),
+        #121212 calc(2vw * var(--title-scale)),
+        #121212 calc(4vw * var(--title-scale))
+      );
+      height: 33.5vw;
+    }
+
+    .pagewords a {
+      display: block;
+    }
+
+    .divider {
+      margin-top: 3vw;
+      margin-bottom: 2vw;
+    }
+
+    .title {
+      margin-top: 1vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+<head>
+  {% block head %}{% endblock %}
+</head>
+<style>
+  .nobottommargin {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) and (orientation: portrait) {
+    :root {
+      --title-scale: 3;
+      --signin-scale: 2;
+      --quote-scale: 2;
+    }
+
+    .mobile {
+      display: block;
+    }
+
+    .desktop {
+      display: none;
+    }
+  }
+</style>
+
+<body style="background-color: black">
+  <div class="navbar">
+    <div class="bg"></div>
+    <div class="title">
+      <a href="/"><h1>Sabre Bytes Robotics</h1></a>
+      <div style="display: flex; width: 99.2%; justify-content: space-between;">
+        <a href="https://www.youtube.com/@frcteam772">> youtube </a>
+        <a href="https://www.instagram.com/frcteam772">> instagram</a>
+        <a href="https://twitter.com/frcteam772">> twitter</a>
+        <a href="https://www.facebook.com/SabreBytes772">> facebook</a>
+      </div>
+    </div>
+    <div class="divider mobile"></div>
+    <div class="pagebuttons">
+      <a href="/chat"><img src="{{ url_for('static', filename='images/icons/chat.svg' )}}"/></a>
+      <a href="/calendar"><img src="{{ url_for('static', filename='images/icons/calendar.svg' )}}"/></a>
+      <a href="/taskboard"><img src="{{ url_for('static', filename='images/icons/pin.svg' )}}"/></a>
+      <a href="/account"><img src="{{ url_for('static', filename='images/icons/profile.svg' )}}"/></a>
+    </div>
+  </div>
+  <div class="divider nobottommargin"></div>
+  {% block main %}{% endblock %}
+
+
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
